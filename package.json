@@ -11,7 +11,10 @@
     "start": "ts-node src/index.ts",
     "test": "jest --detectOpenHandles",
     "test:watch": "jest --watch --collectCoverage=false --detectOpenHandles --unhandled-rejections=strict",
-    "test:coverage": "yarn test --coverage"
+    "test:coverage": "yarn test --coverage",
+    "migration:generate": "./node_modules/.bin/ts-node ./node_modules/.bin/typeorm migration:generate -d ./src/dataSource.ts",
+    "migration:up": "./node_modules/.bin/ts-node ./node_modules/.bin/typeorm migration:run -d ./src/dataSource.ts",
+    "migration:down": "./node_modules/.bin/ts-node ./node_modules/.bin/typeorm migration:revert -d ./src/dataSource.ts"
   },
   "devDependencies": {
     "@types/auth0": "^3.3.3",
